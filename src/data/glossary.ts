@@ -154,7 +154,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "コンポーネントテスト",
     termEn: "Component Testing",
     definition:
-      "個々のソフトウェアコンポーネントを単独でテストするレベル。ユニットテスト、モジュールテストとも呼ばれる。開発者が実施することが多い。",
+      "個々のソフトウェアコンポーネントを単独でテストするレベル。モジュールテストとも呼ばれる。開発者が実施することが多い。",
     chapter: "ソフトウェア開発ライフサイクル全体を通してのテスト",
     confusedWith: ["コンポーネント統合テスト", "統合テスト"],
   },
@@ -254,7 +254,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     chapter: "ソフトウェア開発ライフサイクル全体を通してのテスト",
   },
   {
-    term: "影響度分析",
+    term: "影響分析",
     termEn: "Impact Analysis",
     definition:
       "変更がシステムの既存部分に与える影響を特定する分析活動。回帰テストの範囲決定やメンテナンステストの計画に用いられる。",
