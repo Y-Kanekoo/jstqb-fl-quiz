@@ -24,10 +24,18 @@ export default function RootLayout({
       <body className="min-h-screen bg-gray-50">
         {/* ヘッダー */}
         <header className="bg-blue-600 text-white">
-          <div className="max-w-4xl mx-auto px-4 py-3">
+          <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <Link href="/" className="text-lg font-bold hover:opacity-80 transition-opacity">
               JSTQB FL 学習
             </Link>
+            <nav>
+              <Link
+                href="/glossary"
+                className="text-sm font-medium hover:opacity-80 transition-opacity"
+              >
+                用語集
+              </Link>
+            </nav>
           </div>
         </header>
 

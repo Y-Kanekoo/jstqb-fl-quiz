@@ -89,7 +89,7 @@ function QuizPlayContent() {
     if (nextIndex >= questions.length) {
       // 全問終了 → セッションデータをlocalStorageに一時保存して結果画面へ
       const session: QuizSession = {
-        id: crypto.randomUUID(),
+        id: globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
         settings: {
           mode,
           category: category ?? undefined,
