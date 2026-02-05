@@ -37,9 +37,7 @@ export default function QuizResultPage() {
 
   if (!session) {
     return (
-      <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">
-        結果データが見つかりません
-      </div>
+      <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">結果データが見つかりません</div>
     );
   }
 
@@ -73,10 +71,7 @@ export default function QuizResultPage() {
           <h2 className="text-sm font-medium text-gray-500 mb-4">分野別正答率</h2>
           <div className="space-y-3">
             {Array.from(categoryMap.entries()).map(([cat, stats]) => {
-              const catRate =
-                stats.total > 0
-                  ? Math.round((stats.correct / stats.total) * 100)
-                  : 0;
+              const catRate = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
               return (
                 <div key={cat}>
                   <div className="flex justify-between text-sm mb-1">

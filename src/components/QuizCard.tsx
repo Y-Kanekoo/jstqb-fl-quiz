@@ -56,10 +56,7 @@ export default function QuizCard({
 
       {/* 解説（結果表示時のみ） */}
       {showResult && selectedIndex !== null && (
-        <ExplanationBox
-          explanation={question.explanation}
-          isCorrect={isCorrect}
-        />
+        <ExplanationBox explanation={question.explanation} isCorrect={isCorrect} />
       )}
     </div>
   );

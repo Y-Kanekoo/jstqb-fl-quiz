@@ -34,9 +34,7 @@ export default function HomePage() {
     const progress = getProgress();
     const { totalAnswered: answered, totalCorrect } = progress.stats;
     setTotalAnswered(answered);
-    setCorrectRate(
-      answered > 0 ? Math.round((totalCorrect / answered) * 100) : 0,
-    );
+    setCorrectRate(answered > 0 ? Math.round((totalCorrect / answered) * 100) : 0);
   }, []);
 
   return (
@@ -55,9 +53,7 @@ export default function HomePage() {
             className="block bg-white rounded-xl border border-gray-100 p-6 transition-shadow duration-200 hover:shadow-lg"
           >
             <div className={`w-10 h-10 ${card.color} rounded-lg mb-4`} />
-            <h2 className="text-lg font-bold text-gray-900 mb-1">
-              {card.title}
-            </h2>
+            <h2 className="text-lg font-bold text-gray-900 mb-1">{card.title}</h2>
             <p className="text-sm text-gray-500">{card.description}</p>
           </Link>
         ))}

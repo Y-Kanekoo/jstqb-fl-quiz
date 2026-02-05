@@ -19,18 +19,13 @@ export function shuffleArray<T>(array: T[]): T[] {
 }
 
 /** 設定に基づいて出題する問題を選択する */
-export function selectQuestions(
-  settings: QuizSettings,
-  weakQuestionIds?: string[],
-): Question[] {
+export function selectQuestions(settings: QuizSettings, weakQuestionIds?: string[]): Question[] {
   let pool: Question[];
 
   switch (settings.mode) {
     case "chapter": {
       // 指定カテゴリから出題（未選択なら全問から）
-      pool = settings.category
-        ? getQuestionsByCategory(settings.category)
-        : loadAllQuestions();
+      pool = settings.category ? getQuestionsByCategory(settings.category) : loadAllQuestions();
       break;
     }
     case "weak": {

@@ -1,16 +1,11 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import {
-  glossaryTerms,
-  GLOSSARY_CHAPTERS,
-  type GlossaryChapter,
-} from "@/data/glossary";
+import { glossaryTerms, GLOSSARY_CHAPTERS, type GlossaryChapter } from "@/data/glossary";
 
 export default function GlossaryPage() {
   const [searchText, setSearchText] = useState("");
-  const [selectedChapter, setSelectedChapter] =
-    useState<GlossaryChapter | null>(null);
+  const [selectedChapter, setSelectedChapter] = useState<GlossaryChapter | null>(null);
 
   /** フィルタ済みの用語リスト */
   const filteredTerms = useMemo(() => {
@@ -85,9 +80,7 @@ export default function GlossaryPage() {
       </div>
 
       {/* 件数表示 */}
-      <p className="text-sm text-gray-500 mb-4">
-        {filteredTerms.length}件の用語
-      </p>
+      <p className="text-sm text-gray-500 mb-4">{filteredTerms.length}件の用語</p>
 
       {/* 用語カード一覧 */}
       <div className="space-y-4">
@@ -101,9 +94,7 @@ export default function GlossaryPage() {
               <span className="text-sm text-gray-400">{t.termEn}</span>
             </div>
 
-            <p className="text-sm text-gray-700 leading-relaxed mb-3">
-              {t.definition}
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">{t.definition}</p>
 
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
@@ -126,9 +117,7 @@ export default function GlossaryPage() {
         ))}
 
         {filteredTerms.length === 0 && (
-          <p className="text-gray-400 text-center py-8">
-            該当する用語が見つかりませんでした
-          </p>
+          <p className="text-gray-400 text-center py-8">該当する用語が見つかりませんでした</p>
         )}
       </div>
     </div>

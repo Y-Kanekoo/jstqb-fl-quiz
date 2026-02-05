@@ -40,10 +40,7 @@ function QuizSettingsContent() {
           {/* カテゴリ選択 */}
           <div>
             <h2 className="text-sm font-medium text-gray-700 mb-2">分野を選択</h2>
-            <CategorySelector
-              selectedCategory={selectedCategory}
-              onSelect={setSelectedCategory}
-            />
+            <CategorySelector selectedCategory={selectedCategory} onSelect={setSelectedCategory} />
           </div>
 
           {/* 出題数選択 */}
@@ -94,9 +91,7 @@ function QuizSettingsContent() {
 export default function QuizPage() {
   return (
     <Suspense
-      fallback={
-        <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">読み込み中...</div>
-      }
+      fallback={<div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">読み込み中...</div>}
     >
       <QuizSettingsContent />
     </Suspense>

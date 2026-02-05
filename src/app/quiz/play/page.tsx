@@ -79,7 +79,7 @@ function QuizPlayContent() {
       setShowResult(true);
       setResults((prev) => [...prev, result]);
     },
-    [showResult, questions, currentIndex],
+    [showResult, questions, currentIndex]
   );
 
   /** 「次へ」ボタン */
@@ -89,7 +89,9 @@ function QuizPlayContent() {
     if (nextIndex >= questions.length) {
       // 全問終了 → セッションデータをlocalStorageに一時保存して結果画面へ
       const session: QuizSession = {
-        id: globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        id:
+          globalThis.crypto?.randomUUID?.() ??
+          `${Date.now()}-${Math.random().toString(36).slice(2)}`,
         settings: {
           mode,
           category: category ?? undefined,
@@ -111,11 +113,7 @@ function QuizPlayContent() {
 
   // 問題が読み込まれるまでローディング表示
   if (questions.length === 0) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">
-        問題を準備中...
-      </div>
-    );
+    return <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">問題を準備中...</div>;
   }
 
   const correctCount = results.filter((r) => r.isCorrect).length;
@@ -157,9 +155,7 @@ function QuizPlayContent() {
 export default function QuizPlayPage() {
   return (
     <Suspense
-      fallback={
-        <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">読み込み中...</div>
-      }
+      fallback={<div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">読み込み中...</div>}
     >
       <QuizPlayContent />
     </Suspense>

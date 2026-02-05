@@ -11,11 +11,7 @@ interface ProgressBarProps {
   correctCount: number;
 }
 
-export default function ProgressBar({
-  current,
-  total,
-  correctCount,
-}: ProgressBarProps) {
+export default function ProgressBar({ current, total, correctCount }: ProgressBarProps) {
   const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
 
   return (

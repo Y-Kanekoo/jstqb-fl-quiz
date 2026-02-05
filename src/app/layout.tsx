@@ -14,11 +14,7 @@ export const metadata: Metadata = {
   description: "JSTQB Foundation Level 試験対策クイズ",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja" className={notoSansJP.className}>
       <body className="min-h-screen bg-gray-50">

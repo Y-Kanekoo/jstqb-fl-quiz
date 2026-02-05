@@ -1,11 +1,6 @@
 "use client";
 
-import type {
-  StudyProgress,
-  QuizSession,
-  QuizCategory,
-  CategoryStats,
-} from "@/types/quiz";
+import type { StudyProgress, QuizSession, QuizCategory, CategoryStats } from "@/types/quiz";
 import { getQuestionById } from "@/lib/quiz/loader";
 
 /** localStorageのキー */
@@ -131,8 +126,7 @@ export function recordQuizResult(session: QuizSession): void {
   }
 
   // 最終学習日時を更新
-  progress.stats.lastStudyAt =
-    session.finishedAt ?? session.startedAt;
+  progress.stats.lastStudyAt = session.finishedAt ?? session.startedAt;
 
   saveProgress(progress);
 }

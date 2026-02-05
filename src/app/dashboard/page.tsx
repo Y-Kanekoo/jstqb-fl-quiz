@@ -23,14 +23,11 @@ export default function DashboardPage() {
   }, []);
 
   if (!progress) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">読み込み中...</div>
-    );
+    return <div className="max-w-2xl mx-auto px-4 py-8 text-gray-400">読み込み中...</div>;
   }
 
   const { totalAnswered, totalCorrect } = progress.stats;
-  const overallRate =
-    totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+  const overallRate = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
@@ -55,18 +52,14 @@ export default function DashboardPage() {
           {ALL_CATEGORIES.map((cat) => {
             const stats = progress.perCategory[cat];
             const catRate =
-              stats && stats.attempts > 0
-                ? Math.round((stats.correct / stats.attempts) * 100)
-                : 0;
+              stats && stats.attempts > 0 ? Math.round((stats.correct / stats.attempts) * 100) : 0;
             const hasData = stats && stats.attempts > 0;
             return (
               <div key={cat}>
                 <div className="flex justify-between text-sm mb-1">
                   <span className="text-gray-700 truncate mr-2">{cat}</span>
                   <span className="text-gray-500 shrink-0">
-                    {hasData
-                      ? `${stats.correct}/${stats.attempts} (${catRate}%)`
-                      : "未学習"}
+                    {hasData ? `${stats.correct}/${stats.attempts} (${catRate}%)` : "未学習"}
                   </span>
                 </div>
                 <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -94,8 +87,7 @@ export default function DashboardPage() {
               .map((session) => {
                 const correct = session.results.filter((r) => r.isCorrect).length;
                 const total = session.results.length;
-                const sessionRate =
-                  total > 0 ? Math.round((correct / total) * 100) : 0;
+                const sessionRate = total > 0 ? Math.round((correct / total) * 100) : 0;
                 const modeLabel =
                   session.settings.mode === "chapter"
                     ? "章別学習"
