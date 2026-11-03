@@ -4,27 +4,28 @@ development-hub のテスト標準（https://github.com/Y-Kanekoo/development-hu
 
 ## 段階とコマンド
 
-| 段階 | コマンド |
-| --- | --- |
-| static | `npm run lint` / `npm run format:check` / `npm run typecheck` / `npm run secrets` |
-| unit | `npm run test:unit` |
-| api | `npm run test:api`（外部通信は `startFakeServer()` で代替） |
-| e2e | `npx playwright test --grep @smoke`（UI がある場合） |
+| 段階   | コマンド                                                                                        |
+| ------ | ----------------------------------------------------------------------------------------------- |
+| static | `npm run lint` / `npm run format:check` / `npm run typecheck` / `node scripts/scan-secrets.mjs` |
+| unit   | `npm run test`                                                                                  |
+| api    | `npm run test:api`（外部通信は `startFakeServer()` で代替）                                     |
+| e2e    | `npx playwright test --grep @smoke`（UI がある場合）                                            |
 
-まとめて実行: `npm run check`、またはコミット後に `local-ci run .`（段階の絞り込み: `--stage static,unit`）。
+まとめて実行: `local-ci run .`（段階の絞り込み: `--stage static,unit`）。
 
 ## カバレッジ
 
-- unit 段階の下限: 導入時の実測値（記入: ○○%）。引き下げない
+- unit 段階は問題・用語データの構造と件数表示を検証する。カバレッジ下限は未導入。
 - 下限は引き下げない。計測から外したファイルと理由:（なし）
 
 ## スキップの記録
 
 スキップは `.local-ci.yml` の `skip: true` と `skip_reason` に加えて、この表にも書きます。テストコードに `skip` を追加しません。
 
-| 段階 | 理由 | 解除条件 | 記録日 |
-| --- | --- | --- | --- |
-| - | （なし） | - | - |
+| 段階 | 理由                                    | 解除条件                                | 記録日     |
+| ---- | --------------------------------------- | --------------------------------------- | ---------- |
+| api  | 外部APIを持たないため `test:api` がない | API導入時にローカルのフェイクを用意する | 2026-11-03 |
+| e2e  | Playwright 設定がない                   | E2Eを導入する                           | 2026-11-03 |
 
 ## 弱体化の確認（レビュー時）
 
