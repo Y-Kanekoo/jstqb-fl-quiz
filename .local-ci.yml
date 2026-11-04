@@ -20,8 +20,6 @@ jobs:
     kind: test
     stage: unit
     run: "npm run test"
-    skip: true
-    skip_reason: "package.json に test がない（追加したら skip を外す）"
   api:
     kind: api
     stage: api
