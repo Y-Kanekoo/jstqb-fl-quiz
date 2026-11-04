@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "JSTQB FL試験対策クイズアプリ - 400問収録",
   "private": true,
+  "engines": {
+    "node": ">=24.12.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +15,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,json}\"",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "test": "node --experimental-test-coverage --test-coverage-include=src/data/glossary.ts --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 --test tests/*.test.mjs",
     "prepare": "husky"
   },
   "keywords": [

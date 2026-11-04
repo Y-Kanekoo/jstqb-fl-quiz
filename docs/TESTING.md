@@ -15,8 +15,8 @@ development-hub のテスト標準（https://github.com/Y-Kanekoo/development-hu
 
 ## カバレッジ
 
-- unit 段階は問題・用語データの構造と件数表示を検証する。カバレッジ下限は未導入。
-- 下限は引き下げない。計測から外したファイルと理由:（なし）
+- unit 段階は問題・用語データの構造と件数表示を検証する。Node.js の組み込み計測で `src/data/glossary.ts` の行・分岐・関数カバレッジを測り、各100%を下限とする（導入時の実測値は各100%）。
+- 下限は引き下げない。計測対象は既存の unit が import する実行可能な TypeScript ソース `src/data/glossary.ts`。JSON データはカバレッジ計測の対象外で、既存のデータ検証テストで確認する。
 
 ## スキップの記録
 

@@ -90,7 +90,7 @@ src/
 
 ### 必要環境
 
-- Node.js 18+
+- Node.js 24.12+
 - npm 9+
 
 ### インストール
@@ -128,6 +128,7 @@ npm run start
 | `npm run format`       | Prettierでフォーマット     |
 | `npm run format:check` | フォーマットチェック       |
 | `npm run typecheck`    | TypeScript型チェック       |
+| `npm test`             | unitテストとカバレッジ判定 |
 
 ## 問題データ構造
 
